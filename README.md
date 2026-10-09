@@ -122,3 +122,15 @@ Ative em cada clone: `git config --local core.hooksPath .githooks`. Não contorn
 ## Validação no GitHub
 
 O workflow `.github/workflows/validate.yml` executa verificações próprias deste repositório em push para main, pull request e acionamento manual. As Actions ficam fixadas por SHA e não recebem credenciais de produção. A publicação desta etapa é o código no GitHub; hospedagem e DNS serão configurados depois.
+
+## Deploy da landing na Vercel
+
+Projeto exclusivo: pingo-landingpage, na equipe improhalkers-projects. Repositório conectado: [Improhalker/pingo-landingpage](https://github.com/Improhalker/pingo-landingpage); produção acompanha main. A configuração em [vercel.json](./vercel.json) usa Vite, npm ci, npm run build e saída estática dist; Node 24.x no projeto Vercel.
+
+O deploy publica somente esta landing. Ela não depende de API, sessão ou banco para funcionar. VITE_APPLICATION_URL e VITE_PILOT_URL continuam sem valor de produção até existirem endereços públicos aprovados; a exploração interna da página permanece disponível. Nenhum link localhost deve ser configurado na Vercel.
+
+O vínculo local fica em .vercel/ e é ignorado, assim como .env e .env.local. A CLI pode renovar dados locais de autenticação; nunca versionar esses arquivos nem passar tokens por argumentos. O cadastro histórico do Site em .openai/hosting.json é preservado.
+
+Painel: [Vercel / pingo-landingpage](https://vercel.com/improhalkers-projects/pingo-landingpage). Domínio personalizado será conectado em uma etapa posterior. Referência: [Vite na Vercel](https://vercel.com/docs/frameworks/frontend/vite).
+
+Site publicado: [pingo-landingpage.vercel.app](https://pingo-landingpage.vercel.app). Verificação de 09/10/2026: build Vercel READY, HTTP público 200, desktop 1440 px e mobile 320 px; imagens, abas, menu e Escape conferidos, sem erros de console observados. URLs temporárias de build permanecem protegidas; use o domínio público acima.
