@@ -1,0 +1,202 @@
+{
+  "capturedAt": "2026-10-09T15:12:04.798Z",
+  "source": "PingoFin local, browser capture, real Vue/Laravel screens",
+  "demo": true,
+  "viewport": {
+    "desktop": {
+      "width": 1440,
+      "height": 1400,
+      "scale": 2
+    },
+    "mobile": {
+      "width": 390,
+      "height": 960,
+      "scale": 2
+    }
+  },
+  "period": "2026-10",
+  "routes": {
+    "dashboard": "/",
+    "receitas": "/receitas",
+    "despesas": "/despesas",
+    "parcelas": "/receitas/:id",
+    "relatorios": "/relatorios",
+    "pendencias": "/relatorios?visao=previsto"
+  },
+  "treatment": "WebP transcoding and proportional resize only. No text, numbers or invented UI inserted. Native element screenshots for indicators, chart and schedule.",
+  "reference": "https://app.mywiser.com.br/lp?u",
+  "entries": [
+    {
+      "name": "dashboard",
+      "original": "assets/product/dashboard.png",
+      "web": "public/media/product/dashboard.webp",
+      "width": 2160,
+      "height": 2100,
+      "bytes": 158694,
+      "sha256": "fb3eed238c61ad0ded7c22366bde904db4c5b220e578f9f1837a477887c50fbe"
+    },
+    {
+      "name": "dashboard-escuro",
+      "original": "assets/product/dashboard-escuro.png",
+      "web": "public/media/product/dashboard-escuro.webp",
+      "width": 2160,
+      "height": 2100,
+      "bytes": 152260,
+      "sha256": "d3ac875f6f2c7c8ec30ae8d3bd82027c9278321863a7ddb82cf77e2bf619a87d"
+    },
+    {
+      "name": "receitas",
+      "original": "assets/product/receitas.png",
+      "web": "public/media/product/receitas.webp",
+      "width": 2160,
+      "height": 2100,
+      "bytes": 198724,
+      "sha256": "90c0d74254078b00c93eee087c68fadfaa52dae03121bc5248148d4bdb53af8d"
+    },
+    {
+      "name": "despesas",
+      "original": "assets/product/despesas.png",
+      "web": "public/media/product/despesas.webp",
+      "width": 2160,
+      "height": 2100,
+      "bytes": 166124,
+      "sha256": "73bcfff6a5da18fd340e0df374bb8eec397f317a7dbe1e49315924c6b483c3fe"
+    },
+    {
+      "name": "relatorios",
+      "original": "assets/product/relatorios.png",
+      "web": "public/media/product/relatorios.webp",
+      "width": 2160,
+      "height": 2100,
+      "bytes": 217834,
+      "sha256": "2e5a10a597bbe40810c2a3ba37b0d493ad25892c1d11df5ce4a1019f11e2498b"
+    },
+    {
+      "name": "pendencias",
+      "original": "assets/product/pendencias.png",
+      "web": "public/media/product/pendencias.webp",
+      "width": 2160,
+      "height": 2100,
+      "bytes": 244020,
+      "sha256": "20b27ad65164942be4a3ac2f09afde49dd8f0cc872c388c4c495422ef66ab77a"
+    },
+    {
+      "name": "parcelas",
+      "original": "assets/product/parcelas.png",
+      "web": "public/media/product/parcelas.webp",
+      "width": 2160,
+      "height": 2100,
+      "bytes": 201270,
+      "sha256": "9f78ca673b8d301e58c3d3dc8e01bdb36b6c292d3c0bbe58af883a7de19a84b0"
+    },
+    {
+      "name": "cronograma",
+      "original": "assets/product/cronograma.png",
+      "web": "public/media/product/cronograma.webp",
+      "width": 2160,
+      "height": 602,
+      "bytes": 67256,
+      "sha256": "8b2ae77d7909a25ac06efff52688ace2fefaa955d4da76f28c992cabdb24fed6"
+    },
+    {
+      "name": "grafico",
+      "original": "assets/product/grafico.png",
+      "web": "public/media/product/grafico.webp",
+      "width": 2160,
+      "height": 1177,
+      "bytes": 52126,
+      "sha256": "2515ed9762d17783bbd87c3c9d4b69bb553235099b5d8d171eb2547e576871f2"
+    },
+    {
+      "name": "recebido-card",
+      "original": "assets/product/recebido-card.png",
+      "web": "public/media/product/recebido-card.webp",
+      "width": 710,
+      "height": 374,
+      "bytes": 10936,
+      "sha256": "55713be470e30748c9cbd00d7b861567bc1739602adc2e11b6e1a23948677f69"
+    },
+    {
+      "name": "receber-card",
+      "original": "assets/product/receber-card.png",
+      "web": "public/media/product/receber-card.webp",
+      "width": 1080,
+      "height": 298,
+      "bytes": 10808,
+      "sha256": "293beb5be0924a67616d81b373c50994a83d85e6dd769eb45296b4a73758061a"
+    },
+    {
+      "name": "pagar-card",
+      "original": "assets/product/pagar-card.png",
+      "web": "public/media/product/pagar-card.webp",
+      "width": 1080,
+      "height": 298,
+      "bytes": 10536,
+      "sha256": "b624210e4ec30aa8335bbd80494ab16881a6e5fc867165f7eebb4e0bc6c45bac"
+    },
+    {
+      "name": "resultado-card",
+      "original": "assets/product/resultado-card.png",
+      "web": "public/media/product/resultado-card.webp",
+      "width": 710,
+      "height": 374,
+      "bytes": 14002,
+      "sha256": "f4c598932a6ef0f070dd664eee5979d394b958006ea74ef25e28875f7fc0e857"
+    },
+    {
+      "name": "dashboard-mobile",
+      "original": "assets/product/dashboard-mobile.png",
+      "web": "public/media/product/dashboard-mobile.webp",
+      "width": 732,
+      "height": 966,
+      "bytes": 33662,
+      "sha256": "a4aa81317294aa3bdf3a4da60fab61f88c328a3656587465e2de082b6bda6978"
+    },
+    {
+      "name": "receitas-mobile",
+      "original": "assets/product/receitas-mobile.png",
+      "web": "public/media/product/receitas-mobile.webp",
+      "width": 780,
+      "height": 1920,
+      "bytes": 91754,
+      "sha256": "8568eaae104f05c342ad1a4f63c0792a6e2c50d8d56a98fd8ca2304b98ccf1f4"
+    },
+    {
+      "name": "despesas-mobile",
+      "original": "assets/product/despesas-mobile.png",
+      "web": "public/media/product/despesas-mobile.webp",
+      "width": 780,
+      "height": 1920,
+      "bytes": 83734,
+      "sha256": "fb031631fdca4896aaaef58c3f7df6c85fa70c14b0e6c4b8e965a24a038da79a"
+    },
+    {
+      "name": "relatorios-mobile",
+      "original": "assets/product/relatorios-mobile.png",
+      "web": "public/media/product/relatorios-mobile.webp",
+      "width": 780,
+      "height": 1920,
+      "bytes": 75518,
+      "sha256": "b2efb4e4705e27b654168f2701896c635954d7ce611cc758407f918591ae7350"
+    },
+    {
+      "name": "pendencias-mobile",
+      "original": "assets/product/pendencias-mobile.png",
+      "web": "public/media/product/pendencias-mobile.webp",
+      "width": 780,
+      "height": 1920,
+      "bytes": 70182,
+      "sha256": "e6efe7bbce4c29ca5ccae7e98133dbb6a46f064c07c2502948cf685d71439869"
+    },
+    {
+      "name": "parcelas-mobile",
+      "original": "assets/product/parcelas-mobile.png",
+      "web": "public/media/product/parcelas-mobile.webp",
+      "width": 732,
+      "height": 2442,
+      "bytes": 90980,
+      "sha256": "2436aa59ba1453784a92cf23cbd22985322cf2471690221eb03d357d7f6ce7f3",
+      "capturedAt": "2026-10-09T15:23:15.840Z"
+    }
+  ]
+}

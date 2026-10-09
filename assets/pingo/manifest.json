@@ -1,0 +1,217 @@
+{
+  "schemaVersion": 1,
+  "project": "PingoFin landing page",
+  "catalogDate": "2026-10-06",
+  "status": "propostas 3D para revisão visual",
+  "generationTool": "image_gen built-in",
+  "generationMethod": "uma chamada individual por pose",
+  "identityOrigin": {
+    "project": "sistemafinanceiro",
+    "path": "docs/assets/pingo-referencia.jpg"
+  },
+  "modelReference": "pingo-3d-acenando-v1.png",
+  "assets": [
+    {
+      "id": "acenando",
+      "name": "Acenando",
+      "expression": "Sorriso acolhedor",
+      "action": "Acenando, sem acessórios",
+      "file": "pingo-3d-acenando-v1.png",
+      "promptFile": "pingo-3d-acenando-v1.prompt.txt",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "alphaChannel": true,
+      "sha256": "69ab5d7dbf158b71c62704a9e442efa5f1a5d0322fc8c61b00a485dc6f3de7c7",
+      "reference": "Pingo normal 2D e prancha oficial",
+      "validation": {
+        "pixelFormat": "Format32bppArgb",
+        "cornerAlpha": [0, 0, 0, 0],
+        "copyVerifiedThisTask": null,
+        "visualReviewThisTask": false
+      }
+    },
+    {
+      "id": "feliz",
+      "name": "Feliz",
+      "expression": "Alegria tranquila",
+      "action": "Braços levemente abertos",
+      "file": "pingo-3d-feliz-v1.png",
+      "promptFile": "pingo-3d-feliz-v1.prompt.txt",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "alphaChannel": true,
+      "sha256": "875593ec0d8ce1b661ed0ad0197eadbd124a69882c8fb059a9650984d62ad82c",
+      "reference": "pingo-3d-acenando-v1.png",
+      "validation": {
+        "pixelFormat": "Format32bppArgb",
+        "cornerAlpha": [0, 0, 0, 0],
+        "copyVerifiedThisTask": null,
+        "visualReviewThisTask": false
+      }
+    },
+    {
+      "id": "pensando",
+      "name": "Pensando",
+      "expression": "Curiosidade concentrada",
+      "action": "Uma mão próxima ao queixo",
+      "file": "pingo-3d-pensando-v1.png",
+      "promptFile": "pingo-3d-pensando-v1.prompt.txt",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "alphaChannel": true,
+      "sha256": "e48b28be57c31691c57966155e20ac4c730f0dff00819b7c087a7d2a3036e583",
+      "reference": "pingo-3d-acenando-v1.png",
+      "validation": {
+        "pixelFormat": "Format32bppArgb",
+        "cornerAlpha": [0, 0, 0, 0],
+        "copyVerifiedThisTask": true,
+        "visualReviewThisTask": true
+      }
+    },
+    {
+      "id": "analisando",
+      "name": "Analisando",
+      "expression": "Atenção e interesse",
+      "action": "Observando uma pequena lupa",
+      "file": "pingo-3d-analisando-v1.png",
+      "promptFile": "pingo-3d-analisando-v1.prompt.txt",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "alphaChannel": true,
+      "sha256": "c725892e8a924f871e3a5a6ca0e7be9fe4949f04a1f935c9db16ede055034352",
+      "reference": "pingo-3d-acenando-v1.png",
+      "validation": {
+        "pixelFormat": "Format32bppArgb",
+        "cornerAlpha": [0, 0, 1, 0],
+        "copyVerifiedThisTask": true,
+        "visualReviewThisTask": true
+      }
+    },
+    {
+      "id": "insight",
+      "name": "Insight",
+      "expression": "Descoberta confiante",
+      "action": "Apresentando uma lâmpada simples",
+      "file": "pingo-3d-insight-v1.png",
+      "promptFile": "pingo-3d-insight-v1.prompt.txt",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "alphaChannel": true,
+      "sha256": "30c59a822c2423240fb9fcacb0a6771c7879ac2ea57ea96b45d8ebd6053afe66",
+      "reference": "pingo-3d-acenando-v1.png",
+      "validation": {
+        "pixelFormat": "Format32bppArgb",
+        "cornerAlpha": [0, 0, 0, 0],
+        "copyVerifiedThisTask": true,
+        "visualReviewThisTask": true
+      }
+    },
+    {
+      "id": "atencao",
+      "name": "Atenção",
+      "expression": "Preocupação leve, sem alarme",
+      "action": "Apontando para um pequeno calendário sem texto",
+      "file": "pingo-3d-atencao-v1.png",
+      "promptFile": "pingo-3d-atencao-v1.prompt.txt",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "alphaChannel": true,
+      "sha256": "e6c1a2802581079dd10909d2f31e1aa68ae63ec45bc4827b3470de5f719b8597",
+      "reference": "pingo-3d-acenando-v1.png",
+      "validation": {
+        "pixelFormat": "Format32bppArgb",
+        "cornerAlpha": [0, 0, 0, 0],
+        "copyVerifiedThisTask": true,
+        "visualReviewThisTask": true
+      }
+    },
+    {
+      "id": "organizando",
+      "name": "Organizando",
+      "expression": "Concentração serena",
+      "action": "Segurando duas pastas simples",
+      "file": "pingo-3d-organizando-v1.png",
+      "promptFile": "pingo-3d-organizando-v1.prompt.txt",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "alphaChannel": true,
+      "sha256": "7a1a4e23786d27c19f60c6b2542bf143b11c3de5cd4c8ec678cea7a6da3e630a",
+      "reference": "pingo-3d-acenando-v1.png",
+      "validation": {
+        "pixelFormat": "Format32bppArgb",
+        "cornerAlpha": [0, 0, 0, 0],
+        "copyVerifiedThisTask": true,
+        "visualReviewThisTask": true
+      }
+    },
+    {
+      "id": "explicando",
+      "name": "Explicando",
+      "expression": "Segurança e proximidade",
+      "action": "Palma aberta, apresentando espaço ao lado",
+      "file": "pingo-3d-explicando-v1.png",
+      "promptFile": "pingo-3d-explicando-v1.prompt.txt",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "alphaChannel": true,
+      "sha256": "e3b866b0c215086a9652a01554b9edfcc8c7dd0e0230f589b016cbdd56e9eedf",
+      "reference": "pingo-3d-acenando-v1.png",
+      "validation": {
+        "pixelFormat": "Format32bppArgb",
+        "cornerAlpha": [0, 0, 0, 0],
+        "copyVerifiedThisTask": true,
+        "visualReviewThisTask": true
+      }
+    },
+    {
+      "id": "comemorando",
+      "name": "Comemorando",
+      "expression": "Satisfação moderada",
+      "action": "Pequeno gesto de comemoração",
+      "file": "pingo-3d-comemorando-v1.png",
+      "promptFile": "pingo-3d-comemorando-v1.prompt.txt",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "alphaChannel": true,
+      "sha256": "663b394582cd45096adffb8441d110fa5679c6576fe3962a0925bc19ea774aa0",
+      "reference": "pingo-3d-acenando-v1.png",
+      "validation": {
+        "pixelFormat": "Format32bppArgb",
+        "cornerAlpha": [0, 0, 0, 0],
+        "copyVerifiedThisTask": true,
+        "visualReviewThisTask": true
+      }
+    },
+    {
+      "id": "descansando",
+      "name": "Descansando",
+      "expression": "Tranquilidade",
+      "action": "Sentado, com postura relaxada",
+      "file": "pingo-3d-descansando-v1.png",
+      "promptFile": "pingo-3d-descansando-v1.prompt.txt",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "alphaChannel": true,
+      "sha256": "ddc527a537651965b985f5db8eb388f2254a00de2777a643bce6f173032eab25",
+      "reference": "pingo-3d-acenando-v1.png",
+      "validation": {
+        "pixelFormat": "Format32bppArgb",
+        "cornerAlpha": [0, 0, 0, 0],
+        "copyVerifiedThisTask": true,
+        "visualReviewThisTask": true
+      }
+    }
+  ],
+  "validationNote": "Os dez arquivos são ARGB de 1254 × 1254 px. As oito novas cópias tiveram SHA256 comparado com a origem. Em Analisando, um canto possui alfa 1/255; os demais cantos têm alfa zero. Os PNGs foram preservados sem pós-processamento.",
+  "limits": "Assets não são aprovação definitiva da marca, animações ou confirmação de operações financeiras. Nenhum asset 2D existente foi substituído."
+}
