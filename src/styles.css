@@ -2321,3 +2321,247 @@ h1 > span:not(.yellow-dot) {
     padding: 14px;
   }
 }
+
+/* Revisão de 25/11/2026: links oficiais, áreas de toque de 44 px, ícones de 20–24 px, textos legíveis no
+   celular e trilhos que mostram o próximo card. Ajustes concentrados aqui para preservar a direção visual. */
+.wordmark {
+  min-height: 44px;
+}
+.desktop-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-block: 0;
+}
+.header-cta {
+  gap: 8px;
+}
+.text-link {
+  min-height: 44px;
+  font-size: 15px;
+}
+.mobile-nav a {
+  min-height: 56px;
+  padding-block: 0;
+  font-size: 17px;
+}
+.mobile-nav a svg {
+  flex-shrink: 0;
+  color: #c3a3e3;
+}
+.site-header[data-tone='light'] .mobile-nav a svg {
+  color: #5b2a86;
+}
+.mobile-nav .mobile-nav-cta {
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+  border: 0;
+  border-radius: 12px;
+  background: #fbbf24;
+  color: #241b2b;
+}
+.mobile-nav .mobile-nav-cta svg,
+.site-header[data-tone='light'] .mobile-nav .mobile-nav-cta svg {
+  color: inherit;
+}
+.site-header[data-tone='light'] .mobile-nav .mobile-nav-cta {
+  background: #5b2a86;
+  color: #fff;
+}
+.rail-controls svg {
+  width: 22px;
+  height: 22px;
+}
+.rail-controls button:disabled {
+  opacity: 0.4;
+  background: transparent;
+}
+.step-arrow {
+  width: 24px;
+  height: 24px;
+}
+.pilot-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.pilot-secondary {
+  min-height: 54px;
+  border-radius: 12px;
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 24px;
+}
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-size: 14px;
+  font-weight: 650;
+}
+.footer-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+.footer-bottom {
+  font-size: 12px;
+}
+.hero-capture-note,
+.product-disclaimer {
+  font-size: 12px;
+}
+.scroll-cue {
+  font-size: 11px;
+}
+/* Wide screens: every question card at once, without rail controls. */
+@media (min-width: 1024px) {
+  .rail-grid .rail-controls {
+    display: none;
+  }
+  .rail-grid .rail {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    overflow: visible;
+    scroll-snap-type: none;
+    padding-bottom: 0;
+  }
+  .rail-grid .rail > * {
+    width: auto;
+  }
+}
+@media (max-width: 820px) {
+  .header-cta {
+    display: inline-flex;
+    height: 44px;
+    padding-inline: 14px;
+  }
+}
+@media (max-width: 640px) {
+  /* Tall phone captures are cropped from the top and fade out, instead of stretching the page. */
+  .journey-art .media-slot.has-mobile-media,
+  .preview-card .media-slot.has-mobile-media {
+    aspect-ratio: auto;
+    height: 380px;
+  }
+  .journey-art .media-slot.has-mobile-media img,
+  .preview-card .media-slot.has-mobile-media img {
+    object-fit: cover !important;
+    object-position: top;
+  }
+  .journey-art .media-slot.has-mobile-media::after,
+  .preview-card .media-slot.has-mobile-media::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0;
+    height: 96px;
+    background: linear-gradient(transparent, #382349);
+    pointer-events: none;
+  }
+  .preview-card .media-slot.has-mobile-media::after {
+    background: linear-gradient(transparent, #241b2d);
+  }
+}
+@media (max-width: 560px) {
+  .eyebrow,
+  .hero .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+  .quiet-note {
+    font-size: 13px;
+    line-height: 1.6;
+    max-width: 320px;
+  }
+  .hero-actions {
+    gap: 8px;
+  }
+  .hero-actions .button-yellow,
+  .closing-copy .button-yellow,
+  .pilot-actions,
+  .pilot-actions > a {
+    width: 100%;
+  }
+  .hero-actions .button-yellow,
+  .closing-copy .button-yellow {
+    font-size: 16px;
+  }
+  .hero-actions .text-link {
+    font-size: 15px;
+  }
+  .hero-capture-note {
+    max-width: none;
+    font-size: 12px;
+  }
+  .scroll-cue {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+  .section-footnote {
+    font-size: 12px;
+  }
+  /* The next card stays partly visible, signalling that the rail continues. */
+  .benefit-card,
+  .preview-card {
+    width: calc(100vw - 96px);
+  }
+  .preview-meta,
+  .panel-label,
+  .stage-label {
+    font-size: 11px;
+  }
+  .steps li {
+    padding-block: 20px;
+    gap: 16px;
+  }
+  .steps h3 {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+  .steps p {
+    max-width: none;
+  }
+  .step-arrow {
+    width: 22px;
+    height: 22px;
+  }
+  .journey-grid {
+    gap: 32px;
+  }
+  .product-tab-list [data-slot='tabs-trigger'] {
+    height: auto;
+    min-height: 58px;
+    padding-block: 7px;
+    font-size: 12px;
+  }
+  .product-tab-list [data-slot='tabs-trigger'] > svg {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+  }
+  .product-disclaimer {
+    font-size: 12px;
+  }
+  .browser-chrome span {
+    font-size: 10px;
+  }
+  .pilot-panel p.pilot-note {
+    font-size: 13px;
+  }
+  .footer-bottom {
+    font-size: 12px;
+  }
+}
+@media (max-width: 400px) {
+  .header-cta svg {
+    display: none;
+  }
+  .header-actions {
+    gap: 6px;
+  }
+}

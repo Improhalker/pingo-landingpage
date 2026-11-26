@@ -152,7 +152,9 @@ export const media = {
     fit: 'contain',
   },
 } satisfies Record<string, LandingMedia | LandingMedia[]>
+// Official sign-in of the application (public address, not a secret). VITE_APPLICATION_URL overrides it.
+export const officialApplicationUrl = 'https://app.pingofin.com.br/login'
 export const applicationUrl =
   import.meta.env.VITE_APPLICATION_URL ||
-  (import.meta.env.DEV ? 'http://localhost:3000/login' : '')
+  (import.meta.env.DEV ? 'http://localhost:3000/login' : officialApplicationUrl)
 export const pilotUrl = import.meta.env.VITE_PILOT_URL || ''

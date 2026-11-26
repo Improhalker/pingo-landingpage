@@ -2,11 +2,12 @@
 import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import {
   ArrowUpRight,
-  ArrowRight,
+  ArrowDown,
   Menu,
   X,
   Pause,
   Play,
+  LogIn,
   LayoutDashboard,
   ChartColumn,
   ArrowDownLeft,
@@ -14,7 +15,6 @@ import {
   CalendarDays,
   Sparkles,
   CircleCheck,
-  MoveUpRight,
 } from '@lucide/vue'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
@@ -62,17 +62,20 @@ const benefits = [
 const steps = [
   {
     title: 'Registre.',
-    copy: 'Dê um lugar às entradas e às saídas do seu negócio.',
+    copy: 'Receitas e despesas à vista, parceladas ou que se repetem todo mês.',
   },
   {
     title: 'Confira.',
-    copy: 'Separe o que estava previsto do que foi recebido ou pago.',
+    copy: 'Marque o que foi recebido ou pago, inclusive em partes. O previsto fica separado.',
   },
   {
     title: 'Acompanhe.',
-    copy: 'Volte às pendências e aos próximos vencimentos.',
+    copy: 'Lembretes mostram o que vence hoje e nos próximos dias.',
   },
-  { title: 'Entenda.', copy: 'Olhe o período com as informações reunidas.' },
+  {
+    title: 'Entenda.',
+    copy: 'Veja o resultado do mês e relatórios por período e categoria.',
+  },
 ]
 const productViews = [
   {
@@ -99,7 +102,7 @@ const productViews = [
     icon: Outgoing,
     asset: media.expenses,
     title: 'Cada conta no seu lugar.',
-    copy: 'A proposta é organizar despesas, pagamentos e vencimentos em uma rotina simples de conferir.',
+    copy: 'Organize despesas, pagamentos e vencimentos, inclusive as contas que se repetem todo mês.',
     stage: 'Tela real do produto',
   },
   {
@@ -108,7 +111,7 @@ const productViews = [
     icon: CalendarDays,
     asset: media.pending,
     title: 'O próximo passo fica mais claro.',
-    copy: 'Uma visão para encontrar o que ainda precisa de atenção, sem misturar pendências com valores realizados.',
+    copy: 'Encontre o que ainda falta receber e pagar, parcela por parcela, sem misturar com o que já aconteceu.',
     stage: 'Tela real do produto',
   },
   {
@@ -117,7 +120,7 @@ const productViews = [
     icon: ChartColumn,
     asset: media.reports,
     title: 'O período, com contexto.',
-    copy: 'Consulte o resultado do mês e os recebimentos e pagamentos por categoria.',
+    copy: 'Consulte o resultado de cada mês, o extrato do que entrou e saiu e os valores por categoria.',
     stage: 'Tela real do produto',
   },
 ]
@@ -138,39 +141,45 @@ const previews = [
     asset: media.pending,
     number: '03',
     title: 'Voltar ao que importa.',
-    copy: 'Uma rotina de consulta, revisão e acompanhamento.',
+    copy: 'O que falta receber e pagar, com o vencimento de cada parcela.',
   },
 ]
+// Answers describe what is live in the application today (checked on app.pingofin.com.br on 25/11/2026).
 const faqs = [
   {
     question: 'Para quem é o PingoFin?',
     answer:
-      'Para pequenos negócios que buscam uma rotina financeira mais simples. Autoescolas são o primeiro público de validação, mas a proposta do produto é genérica.',
+      'Para pequenos negócios que querem organizar entradas, saídas e pendências em um só lugar, sem anotações e planilhas espalhadas. Começamos pelas autoescolas, mas o PingoFin serve a negócios de outras áreas.',
   },
   {
-    question: 'Já posso usar todas essas telas?',
+    question: 'O que dá para fazer no PingoFin hoje?',
     answer:
-      'As capturas mostram telas já implementadas do PingoFin: visão geral, receitas, despesas, parcelas e relatórios. Os dados são de demonstração. A liberação de acesso depende da preparação do piloto.',
+      'Cadastrar clientes e categorias; registrar receitas e despesas à vista, parceladas (com entrada) ou que se repetem todo mês; marcar recebimentos e pagamentos, inclusive parciais; corrigir uma baixa mantendo o histórico; ver lembretes de vencimento; e acompanhar a visão geral do mês e os relatórios.',
   },
   {
-    question: 'O Pingo já tem inteligência artificial?',
+    question: 'Como faço para entrar?',
     answer:
-      'Ainda não. O Pingo já tem uma interface de conversa local, mas não responde com IA, não analisa suas finanças e não registra operações. Aqui ele apresenta a personalidade da marca.',
+      'Acesse app.pingofin.com.br e entre com o e-mail e a senha da sua empresa. Cada empresa recebe um acesso próprio, criado pela equipe PingoFin: não há cadastro aberto por esta página.',
   },
   {
-    question: 'Posso acessar pelo celular?',
+    question: 'Funciona no celular?',
     answer:
-      'Esta apresentação se adapta ao celular. Os fluxos financeiros do produto precisam ser validados conforme cada módulo fica pronto; a landing não comprova que todos eles já estejam disponíveis.',
+      'Sim. O PingoFin funciona direto no navegador do celular, do tablet ou do computador, sem instalar nada, e se adapta ao tamanho da tela.',
   },
   {
-    question: 'Como funciona o piloto?',
+    question: 'Os dados da minha empresa ficam separados?',
     answer:
-      'O PingoFin está sendo preparado para validar a rotina com pequenos negócios. As condições do piloto, os canais de contato e a contratação ainda serão definidos. Por enquanto, você pode explorar esta prévia.',
+      'Sim. Cada empresa acessa somente os próprios registros. As telas mostradas nesta página usam dados fictícios, sem informações de clientes.',
   },
   {
-    question: 'Vai ter planos pagos?',
+    question: 'O Pingo já usa inteligência artificial?',
     answer:
-      'Os planos e preços ainda não foram definidos. Esta página não tem checkout nem contratação ativa.',
+      'Ainda não. No app, o Pingo tem um espaço de conversa, mas não responde com inteligência artificial, não analisa seus números e não registra operações. Esses recursos virão em outra etapa.',
+  },
+  {
+    question: 'Quanto custa?',
+    answer:
+      'Os planos e valores ainda não estão publicados. Esta página não faz venda nem cobrança.',
   },
 ]
 let frame = 0
@@ -238,7 +247,7 @@ onBeforeUnmount(() => {
           Pingo<span>Fin</span>
         </a>
         <nav class="desktop-nav" aria-label="Navegação principal">
-          <a href="#como-funciona">Como funciona</a
+          <a href="#como-funciona">Como funciona</a><a href="#produto">Telas</a
           ><a href="#pingo">Conheça o Pingo</a><a href="#duvidas">Dúvidas</a>
         </nav>
         <div class="header-actions">
@@ -250,17 +259,15 @@ onBeforeUnmount(() => {
             :aria-pressed="paused"
             @click="paused = !paused"
           >
-            <Play v-if="paused" :size="17" aria-hidden="true" /><Pause
+            <Play v-if="paused" :size="20" aria-hidden="true" /><Pause
               v-else
-              :size="17"
+              :size="20"
               aria-hidden="true"
             />
           </Button>
-          <a v-if="applicationUrl" :href="applicationUrl" class="login-link"
-            >Entrar <ArrowUpRight :size="16" aria-hidden="true"
-          /></a>
           <Button as-child class="header-cta"
-            ><a href="#produto">Conhecer <ArrowUpRight aria-hidden="true" /></a
+            ><a :href="applicationUrl"
+              >Entrar <LogIn :size="20" aria-hidden="true" /></a
           ></Button>
           <button
             ref="menuButton"
@@ -284,19 +291,19 @@ onBeforeUnmount(() => {
         aria-label="Navegação no celular"
       >
         <a href="#como-funciona" @click="closeMenu"
-          >Como funciona <ArrowUpRight aria-hidden="true"
-        /></a>
-        <a href="#pingo" @click="closeMenu"
-          >Conheça o Pingo <ArrowUpRight aria-hidden="true"
+          >Como funciona <ArrowDown :size="22" aria-hidden="true"
         /></a>
         <a href="#produto" @click="closeMenu"
-          >Explore o produto <ArrowUpRight aria-hidden="true"
+          >Telas do PingoFin <ArrowDown :size="22" aria-hidden="true"
+        /></a>
+        <a href="#pingo" @click="closeMenu"
+          >Conheça o Pingo <ArrowDown :size="22" aria-hidden="true"
         /></a>
         <a href="#duvidas" @click="closeMenu"
-          >Dúvidas <ArrowUpRight aria-hidden="true"
+          >Dúvidas <ArrowDown :size="22" aria-hidden="true"
         /></a>
-        <a v-if="applicationUrl" :href="applicationUrl"
-          >Entrar <ArrowUpRight aria-hidden="true"
+        <a :href="applicationUrl" class="mobile-nav-cta"
+          >Acessar o PingoFin <LogIn :size="22" aria-hidden="true"
         /></a>
       </nav>
     </header>
@@ -320,15 +327,16 @@ onBeforeUnmount(() => {
             </p>
             <div class="hero-actions" data-enter>
               <Button as-child size="lg" class="button-yellow"
-                ><a href="#produto"
-                  >Explore o PingoFin
-                  <ArrowUpRight aria-hidden="true" /></a></Button
-              ><a href="#pingo" class="text-link"
-                >Conheça o Pingo <ArrowRight :size="18" aria-hidden="true"
+                ><a :href="applicationUrl"
+                  >Acessar o PingoFin
+                  <LogIn :size="22" aria-hidden="true" /></a></Button
+              ><a href="#como-funciona" class="text-link"
+                >Ver como funciona <ArrowDown :size="20" aria-hidden="true"
               /></a>
             </div>
             <p class="quiet-note" data-enter>
-              Uma nova rotina financeira. Em construção, com cuidado.
+              Entre com o e-mail e a senha da sua empresa. O acesso é criado
+              pela equipe PingoFin.
             </p>
           </div>
           <div
@@ -350,7 +358,7 @@ onBeforeUnmount(() => {
               <MediaSlot :asset="media.hero" eager />
             </div>
             <p class="hero-capture-note">
-              Interface real · dados de demonstração
+              Tela real do PingoFin · dados fictícios
             </p>
           </div>
         </div>
@@ -401,7 +409,7 @@ onBeforeUnmount(() => {
               financeiro pode começar pelo básico.
             </p>
           </div>
-          <Rail label="Perguntas para organizar o financeiro">
+          <Rail label="Perguntas para organizar o financeiro" grid>
             <article
               v-for="(benefit, index) in benefits"
               :key="benefit.title"
@@ -415,8 +423,8 @@ onBeforeUnmount(() => {
             </article>
           </Rail>
           <p class="section-footnote">
-            Recortes da interface real. Valores de demonstração, sem dados de
-            clientes.
+            Recortes de telas reais do PingoFin, com valores fictícios e sem
+            dados de clientes.
           </p>
         </div>
       </section>
@@ -468,11 +476,11 @@ onBeforeUnmount(() => {
               </h2>
             </div>
             <p>
-              Entrar, conferir e seguir o dia. Estamos construindo uma
-              experiência para o financeiro caber na sua rotina.
+              Entrar, conferir e seguir o dia. Telas pensadas para caber na sua
+              rotina, no computador ou no celular.
             </p>
           </div>
-          <Rail label="Prévias das telas do PingoFin"
+          <Rail label="Telas do PingoFin"
             ><article
               v-for="preview in previews"
               :key="preview.title"
@@ -519,8 +527,8 @@ onBeforeUnmount(() => {
             <div class="pingo-status">
               <Sparkles :size="21" aria-hidden="true" />
               <p>
-                <strong>Um assistente em construção.</strong><br />Por enquanto,
-                personalidade e interface. A inteligência artificial vem em
+                <strong>Ainda sem inteligência artificial.</strong><br />No app,
+                o Pingo tem um espaço de conversa. As respostas com IA virão em
                 outra etapa.
               </p>
             </div>
@@ -591,9 +599,7 @@ onBeforeUnmount(() => {
                 >espaço para respirar.</span
               >
             </h2>
-            <p>
-              Explore as telas reais do PingoFin, com dados de demonstração.
-            </p>
+            <p>Telas reais do PingoFin, preenchidas com dados fictícios.</p>
           </div>
           <Tabs
             v-model="activeTab"
@@ -605,7 +611,7 @@ onBeforeUnmount(() => {
                 v-for="view in productViews"
                 :key="view.value"
                 :value="view.value"
-                ><component :is="view.icon" :size="18" aria-hidden="true" />{{
+                ><component :is="view.icon" :size="20" aria-hidden="true" />{{
                   view.label
                 }}</TabsTrigger
               ></TabsList
@@ -631,7 +637,7 @@ onBeforeUnmount(() => {
                   <MediaSlot :asset="view.asset" screen />
                 </div>
                 <p class="product-disclaimer">
-                  Interface real · dados de demonstração · sem dados de clientes
+                  Tela real · dados fictícios · sem informações de clientes
                 </p>
               </div></TabsContent
             >
@@ -646,26 +652,36 @@ onBeforeUnmount(() => {
         <div class="container pilot-panel" data-reveal>
           <span class="pilot-star" aria-hidden="true">✦</span>
           <div>
-            <p class="eyebrow">FEITO PARA CRESCER PERTO DE QUEM USA</p>
+            <p class="eyebrow">COMO COMEÇAR</p>
             <h2>
-              Pequenos negócios.<br /><span class="text-purple"
-                >Uma grande conversa.</span
-              >
+              Sua empresa.<br /><span class="text-purple">Seu acesso.</span>
             </h2>
             <p>
-              Estamos preparando o PingoFin para validar uma rotina financeira
-              mais simples. Autoescolas são o nosso primeiro ponto de partida.
+              Cada empresa recebe um acesso próprio, criado pela equipe
+              PingoFin. Com o e-mail e a senha em mãos, é só entrar, no
+              computador ou no celular.
             </p>
             <p class="pilot-note">
-              Piloto em preparação. Condições e canais de contato serão
-              definidos.
+              Começamos pelas autoescolas. O PingoFin serve a pequenos negócios
+              de outras áreas também.
             </p>
           </div>
-          <Button as-child size="lg" class="button-purple"
-            ><a :href="pilotUrl || '#produto'"
-              >{{ pilotUrl ? 'Conhecer o piloto' : 'Explorar a prévia'
-              }}<ArrowUpRight aria-hidden="true" /></a
-          ></Button>
+          <div class="pilot-actions">
+            <Button as-child size="lg" class="button-purple"
+              ><a :href="applicationUrl"
+                >Acessar o PingoFin <LogIn :size="22" aria-hidden="true" /></a
+            ></Button>
+            <Button
+              v-if="pilotUrl"
+              as-child
+              size="lg"
+              variant="outline"
+              class="pilot-secondary"
+              ><a :href="pilotUrl"
+                >Quero usar na minha empresa
+                <ArrowUpRight aria-hidden="true" /></a
+            ></Button>
+          </div>
         </div>
       </section>
 
@@ -681,7 +697,7 @@ onBeforeUnmount(() => {
               Vamos deixar<br /><span class="text-purple">mais claro?</span>
             </h2>
             <p>
-              O que já existe, o que está sendo construído e o que vem depois.
+              O que o PingoFin faz hoje, como entrar e o que ainda vem por aí.
             </p>
           </div>
           <Accordion type="single" collapsible class="faq-list"
@@ -708,8 +724,8 @@ onBeforeUnmount(() => {
               >
             </h2>
             <Button as-child size="lg" class="button-yellow"
-              ><a href="#produto"
-                >Vem conhecer o PingoFin <MoveUpRight aria-hidden="true" /></a
+              ><a :href="applicationUrl"
+                >Acessar o PingoFin <LogIn :size="22" aria-hidden="true" /></a
             ></Button>
           </div>
           <div class="closing-pingo" data-reveal>
@@ -727,13 +743,16 @@ onBeforeUnmount(() => {
           ><span class="footer-star" aria-hidden="true">✦</span></a
         >
         <p>Um financeiro simples para pequenos negócios.</p>
-        <a href="#duvidas"
-          >Dúvidas <ArrowUpRight :size="16" aria-hidden="true"
-        /></a>
+        <nav class="footer-links" aria-label="Links do rodapé">
+          <a href="#duvidas">Dúvidas</a
+          ><a :href="applicationUrl"
+            >Entrar <LogIn :size="20" aria-hidden="true"
+          /></a>
+        </nav>
       </div>
       <div class="container footer-bottom">
         <span>© {{ new Date().getFullYear() }} PingoFin</span
-        ><span>Prévia em desenvolvimento · imagens e telas ilustrativas</span>
+        ><span>Telas reais do PingoFin com dados fictícios.</span>
       </div>
     </footer>
   </div>
